@@ -119,6 +119,46 @@
           }
         }
       }
+    },
+    "hot-toast": {
+      "projectType": "library",
+      "root": "projects/hot-toast",
+      "sourceRoot": "projects/hot-toast/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "tsConfig": "projects/hot-toast/tsconfig.lib.json",
+            "project": "projects/hot-toast/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/hot-toast/tsconfig.lib.prod.json"
+            }
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hot-toast/src/test.ts",
+            "tsConfig": "projects/hot-toast/tsconfig.spec.json",
+            "karmaConfig": "projects/hot-toast/karma.conf.js"
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hot-toast/tsconfig.lib.json",
+              "projects/hot-toast/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }},
   "defaultProject": "angular-hot-toast"
 }
